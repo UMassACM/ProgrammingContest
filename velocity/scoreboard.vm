@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>ACM Programming Competition</title>
+    <link rel="stylesheet" type="text/css" href="/resource/css/style.css">
+    <script type="text/JavaScript">
+		function timedRefresh(timeoutPeriod) {
+			setInterval("location.reload(true);",timeoutPeriod);
+		}
+	</script>
+</head>
+<html>
+	<body onload="JavaScript:timedRefresh(10000);">
+		<div class="page" align="center">
+			<h1>UMass ACM Programming Competition 2013</h1>
+			<h2>Scoreboard</h2>
+			<a href="/dashboard" style="text-decoration:none;"><span class="scoreboard_link">View Dashboard</span></a>
+			#set($range = [1..$config.getIntValue("num_problems")])
+			<table border="1" cellspacing="0">
+				<tr>
+					<th>Username</th>
+					#foreach($i in $range)
+						<th>Problem $i</th>
+					#end
+					<th>Total Time</th>
+				</tr>
+				#foreach($user in $users)
+					<tr>
+						<td>$user.getUsername()</td>
+						#foreach($i in $range)
+							#set( $index = $i - 1 )
+							#if($user.getSolveTime($index) > 0)
+								<td class="solve_correct">$user.getSolveTimeString($index)</td>
+							#else
+								<td>--:--:--</td>
+							#end
+						#end
+						#if($user.getTotalTime() > 0)
+							<td class="solve_correct">$user.getTotalTimeString()</td>
+						#else
+							<td>--:--:--</td>
+						#end
+					</tr>
+				#end
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <title>ACM Programming Competition</title>
+    <link rel="stylesheet" type="text/css" href="/resource/css/style.css">
+</head>
+<html>
+	<body>
+		<div class="page" align="center">
+			<h1>UMass ACM Programming Competition 2013</h1>
+			<h2>$remainingTime</h2>
+			<h2>$user.getUsername()'s Dashboard</h2>
+			<a href="/scoreboard" style="text-decoration:none;"><span class="scoreboard_link">View Scoreboard</span></a>
+			#set($range = [1..$config.getIntValue("num_problems")])
+			<table border="1" cellspacing="0">
+				<tr>
+					<th>Problem</th>
+					<th>Solve Time</th>
+					<th>Solve Status</th>
+				</tr>
+				#foreach($i in $range)
+					<tr>
+						<td><div class="scorecard_item"><a href='/problem?num=$i'>Problem $i</a></div></td>
+						#set( $index = $i - 1 )
+						<td>
+							<div class="scorecard_item">
+								#if($user.getSolveTime($index) > 0)
+									$user.getSolveTimeString($index)
+								#else
+									--:--:--
+								#end
+							</div>
+						</td>
+						#if($user.getSolveStatus($index) == 0)
+							<td><div class="scorecard_item solve_fail">Unanswered</div></td>
+						#elseif($user.getSolveStatus($index) == 1)
+							<td><div class="scorecard_item solve_pending">Pending</div></td>
+						#elseif($user.getSolveStatus($index) == 2)
+							<td><div class="scorecard_item solve_fail">$user.getErrorMessage($index)</div></td>
+						#else
+							<td><div class="scorecard_item solve_correct">Correct</div></td>
+						#end
+					</tr>
+				#end
+			</table>
+			<hr></hr>
+			<div>
+				#if( $contestOpen == true)
+					<form action="/compileprogram" method="POST">
+						<table>
+							<tr>
+								<td>Problem</td>
+								<td>
+									<select name="prob">
+										#foreach($i in $range)
+											#set( $index = $i - 1 )
+											#if($user.getSolveStatus($index) == 0 || $user.getSolveStatus($index) == 2)
+									  			<option value="$index">Problem $i</option>
+									  		#end
+									  	#end
+									</select>
+								</td>
+							</tr><tr>
+								<td>Language</td>
+								<td>
+									<select name="lang">
+										#if( $user.getPrefferedLang() == 0)
+									  		<option selected="selected" value="Java">Java</option>
+									  	#else
+									  		<option value="Java">Java</option>
+									  	#end
+									  	#if( $user.getPrefferedLang() == 1)
+									  		<option selected="selected" value="C++">C++</option>
+									  	#else
+									  		<option value="C++">C++</option>
+									  	#end
+									  	#if( $user.getPrefferedLang() == 2)
+									  		<option selected="selected" value="Python">Python</option>
+									  	#else
+									  		<option value="Python">Python</option>
+									  	#end
+									</select>
+								</td>
+							</tr>
+						</table>
+						<b>Note:</b> Name java classes like "public class prob1 {"<br>
+						<textarea name="code" cols="100" rows="30"></textarea><br>
+						<input type="submit" value="Compile" />
+					</form>
+				#end
+			</div>
+		</div>
+	</body>
+</html>

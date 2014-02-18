@@ -1,0 +1,64 @@
+body
+{
+	font-family: Ariel;
+}
+
+.page 
+{
+}
+
+.status_open 
+{
+	color: green;
+}
+
+.status_closed
+{
+	color: red;
+}
+
+.scorecard_item 
+{
+	padding: 5px;
+}
+
+.solve_fail 
+{
+	color: red;
+}
+
+.solve_pending
+{
+	color: orange;
+}
+
+.solve_correct
+{
+	color: green;
+}
+
+.scoreboard_link
+{
+	font-size: 1.4em;
+	padding-bottom: 10px;
+	color: blue;
+	font-weight: bold;
+}
+
+.separator
+{
+	border-bottom: 1px;
+	width: 100%;
+}
+
+.code_input
+{
+	width:1000px;
+}
+
+.example
+{
+	border-style:dashed;
+	border-width:1px;
+	background-color: #E0E0E0;
+}

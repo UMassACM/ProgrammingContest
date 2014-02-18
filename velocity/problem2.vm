@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Problem 2: Happy Camper</title>
+    <style type="text/css"><!--
+			      html { margin-left: 4em; }
+			      h1 { margin-left: -2em; font-size: 14pt; }
+			      tt,pre { font-weight: bold; font-size: 12pt; }
+			      .image { text-align: center; border: 1px solid black; margin: 1em; }
+			      .left { float: left; }
+			      .right { float: right; }
+			      .break { page-break-before: always; }
+			     --></style>
+  </head><body>
+    <h1>Problem 2: Happy Camper</h1>
+
+
+    <p>
+      As Happy Camper Harry pulls into his favorite campground with his family, he notices the sign: 'Campground occupancy is limited to 10 days within any consecutive 20-day period.' Harry is just starting a 28-day vacation. What is the maximum number of days he can occupy a campsite during his vacation?
+    </p>
+    <p>
+      We state the problem in more general terms. Suppose that 1 &lt; L &lt; P &lt; V are integers. Campground occupancy is limited to L days within any consecutive P-day period. Happy Camper Harry is just starting a V-day vacation. What is the maximum number of days he can occupy a campsite during his vacation?
+    </p>
+    <h1>Input</h1>
+
+    <p>
+      The input will contain data for a number of test cases. For each test case, there will be one line of data, containing values of L, P and V, in that order. All input integers can be represented by signed 32-bit integers. End of data will be signaled by a line containing three zeros, which will not be processed.
+    </p>
+
+    <h1>Output</h1>
+    <p>
+      There will be one line of output for each test case. It will display the case number and the number of days Happy Camper Harry can occupy a campsite during his vacation. The format is illustrated by the sample output.
+    </p>
+
+    <h1>Sample Input</h1>
+    <pre>
+5 8 20
+5 8 17
+0 0 0
+    </pre>
+
+    <h1>Sample Output</h1>
+    <pre>
+Case 1: 14
+Case 2: 11
+    </pre>
+  </body>
+</html>

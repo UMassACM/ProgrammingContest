@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Problem 7: Wax</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+   --></style>
+  </head><body>
+    <h1>Problem 7: Wax</h1>
+
+<p>
+You are a flooring contractor with bickering employees. You need to have these employees work together to wax the floor of some rooms, each with 1 door.
+</p>
+
+<p>
+None of the workers want to work more than the others, and insist on working together so they can see if someone else is goofing off, so you must assign equal areas of each room to each employee. Each worker is assigned a contiguous portion of the room to wax. The portions assigned are separated by straight line segments that radiate out from the doorway to a wall in the room, so they can exit the room after the job is done.
+</p>
+
+<h1 style="page-break-before: always;">Input</h1>
+
+<p>
+The input is a series of problem definitions as follows:
+</p>
+<pre>
+WIDTH HEIGHT DOOR WORKERS
+</pre>
+<p>
+Each is a non-negative integer value less than or equal to 100, with at least 2 workers, and a positive <tt>WIDTH</tt> and <tt>HEIGHT</tt>. They specify the positions of the corners of the room: <tt>(0,0)</tt>, <tt>(WIDTH,0)</tt>, <tt>(WIDTH,HEIGHT)</tt>, and <tt>(0,HEIGHT)</tt>, as well as the location of the door: <tt>(DOOR,0)</tt>, <tt>0 &lt; DOOR &lt; WIDTH</tt>. Each problem definition is given on its own line.
+</p>
+<p>
+The end of input is indicated by a list of 4 zeros:
+</p>
+<pre>
+0 0 0 0
+</pre>
+
+<h1>Output</h1>
+
+<p>
+The output are the coordinates, with 3 decimal digits of precision, of the ends of the <tt>WORKERS-1</tt> line segments extending from the door to a wall of the room so that the room is divided into <tt>WORKERS</tt> parts with equal areas. The points should be given in counter-clockwise order.
+</p>
+
+<h1>Sample Input</h1>
+
+<pre>
+3 5 2 4
+10 10 5 2
+10 10 5 4
+0 0 0 0
+</pre>
+
+<h1>Sample Output</h1>
+
+<pre>
+2.500 5.000 1.000 5.000 0.000 3.750
+5.000 10.000
+10.000 10.000 5.000 10.000 0.000 10.000
+</pre>
+
+</body>
+</html>

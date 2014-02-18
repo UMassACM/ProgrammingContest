@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Problem 4: Papa</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+   --></style>
+  </head><body>
+    <h1>Problem 4: Papa</h1>
+
+
+<p>
+While cleaning your parents' attic, you discovered a box containing many documents describing the relationships among your ancestors. Given these documents, you are interested in answering a number of questions about the relationships implied by the document. Fortunately, all your ancestors have unique names so it is possible to make many inferences without any confusion.
+</p>
+
+<p>
+It is assumed that all relationships (implied or given) satisfy the
+following:
+</p>
+<ul>
+  <li>A person can be either male, female, or have an unknown (undetermined by the data set) sex;</li>
+  <li>a person can have at most one spouse (of the opposite sex), and X is Y's wife if and only if Y is X's husband;</li>
+  <li>a person can have at most one mother and at most one father that can be inferred from the given data;</li>
+  <li>if a person has a mother and father, then the mother and father are married;</li>
+  <li>the children of a person's spouse are that person's children as well;</li>
+  <li>the spouse of a son (or daughter) is not considered to be a
+  daughter (or son). In other words, "sons" and "daughters" refer to
+  biological sons and daughters.</li>
+</ul>
+<p>
+The information provided will be consistent, and you may assume there are no hidden relationships that are not explicitly stated or implied by the above rules of consistency.
+</p>
+
+<h1>Input</h1>
+
+<p>
+The first part of the input consists of a number of lines describing
+the known relationships. Each relationship is listed on one line in
+the form:
+</p>
+<pre>
+NAME is NAME's RELATIONSHIP.
+</pre>
+<p>
+where <tt>NAME</tt> is a lowercase alphabetic word (never 'is'), and <tt>RELATIONSHIP</tt> is one of
+</p>
+<ul>
+  <li><tt>wife</tt></li>
+  <li><tt>husband</tt></li>
+  <li><tt>daughter</tt></li>
+  <li><tt>son</tt></li>
+  <li><tt>mother</tt></li>
+  <li><tt>father</tt></li>
+</ul>
+
+<p>
+This first part is terminated by a blank line. You may assume that
+there is at least one known relationship given, and there are at most
+100 distinct names mentioned in the known relationships.
+</p>
+
+<p>
+This is followed by a list of questions (one per line) of the form:
+</p>
+<pre>
+is NAME NAME's RELATIONSHIP?
+</pre>
+<p>
+where <tt>NAME</tt> is as before, but <tt>RELATIONSHIP</tt> is one of
+</p>
+<ul>
+  <li><tt>wife</tt></li>
+  <li><tt>husband</tt></li>
+  <li><tt>daughter</tt></li>
+  <li><tt>son</tt></li>
+  <li><tt>mother</tt></li>
+  <li><tt>father</tt></li>
+  <li><tt>niece</tt>: <tt>X</tt> is a niece of <tt>Y</tt> if there are <tt>W</tt> and <tt>Z</tt> such that <tt>X</tt> is a daughter of <tt>W</tt>, and <tt>W</tt> and <tt>Y</tt> are distinct children of <tt>Z</tt>.</li>
+ <li><tt>nephew</tt>: <tt>X</tt> is a nephew of <tt>Y</tt> if there
+  are <tt>W</tt> and <tt>Z</tt> such that <tt>X</tt> is a son of
+  <tt>W</tt>, and <tt>W</tt> and <tt>Y</tt> are distinct children of <tt>Z</tt>.</li>
+  <li><tt>grandfather</tt>: <tt>X</tt> is a grandfather of <tt>Y</tt>
+  if there is <tt>Z</tt> such that <tt>X</tt> is a father of
+  <tt>Z</tt>, and <tt>Z</tt> is the father or mother of
+  <tt>Y</tt>.</li>
+  <li><tt>grandmother</tt>: <tt>X</tt> is a grandmother of <tt>Y</tt> if there is <tt>Z</tt> such that <tt>X</tt> is a mother of <tt>Z</tt>, and <tt>Z</tt> is the father or mother of <tt>Y</tt>.</li>
+  <li><tt>grandson</tt>: <tt>X</tt> is a grandson of <tt>Y</tt> if
+  there is <tt>Z</tt> such that <tt>X</tt> is a son of <tt>Z</tt>, and
+  <tt>Z</tt> is a child of <tt>Y</tt>.</li>
+  <li><tt>granddaughter</tt>: <tt>X</tt> is a granddaughter of
+  <tt>Y</tt> if there is <tt>Z</tt> such that <tt>X</tt> is a daughter
+  of <tt>Z</tt>, and <tt>Z</tt> is a child of <tt>Y</tt>.</li>
+</ul>
+
+<p>
+All names appearing in the questions will be mentioned in the list of
+known relationships.
+</p>
+
+<h1>Output</h1>
+
+<p>
+For each question, print on a line <tt>yes</tt> or <tt>no</tt> if the answer of the
+question can be determined, or <tt>unknown</tt> if the answer may be yes or
+no because the sex of the relevant person(s) in the question cannot be
+determined from the known relationships.
+</p>
+
+<h1>Sample Input</h1>
+
+<pre>
+john is mary's husband.
+john is tom's father.
+mary is jane's mother.
+jane is anna's mother.
+
+is mary john's wife?
+is jane mary's daughter?
+is tom mary's husband?
+is anna jane's daughter?
+</pre>
+
+<h1>Sample Output</h1>
+
+<pre>
+yes
+yes
+no
+unknown
+</pre>
+
+</body>
+</html>
